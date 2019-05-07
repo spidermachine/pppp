@@ -207,6 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2369f16a7c1a4345a54d99a3465a74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3.5
+  updatePlayer: 1
 --- !u!114 &175501733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2369f16a7c1a4345a54d99a3465a74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3.5
+  updatePlayer: 0
 --- !u!50 &516640288
 Rigidbody2D:
   serializedVersion: 4
@@ -804,6 +808,9 @@ MonoBehaviour:
   uiView: {fileID: 1508269259}
   runAudio: {fileID: 1543549646}
   stopAudio: {fileID: 1560374662}
+  preftab: {fileID: 8430002167463204319, guid: e8d8196cd7f4d4875ad23a15758203fb, type: 3}
+  spawneRate: 4
+  score: 0
 --- !u!1 &934974960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1588,8 @@ GameObject:
   - component: {fileID: 1974943763}
   - component: {fileID: 1974943762}
   - component: {fileID: 1974943761}
-  m_Layer: 9
+  - component: {fileID: 1974943766}
+  m_Layer: 0
   m_Name: robotController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1682,8 +1690,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1773518977
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 545c7d06e2ebb42c6ba840ca0c7f1c59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1710,3 +1718,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1974943766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974943760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5004633106e1f4e9304649640f7dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

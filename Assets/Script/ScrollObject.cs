@@ -6,6 +6,10 @@ public class ScrollObject : MonoBehaviour
 {
 
     private Rigidbody2D rd2d;
+
+    public float speed = 2.0f;
+
+    public bool updatePlayer = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +20,6 @@ public class ScrollObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (GameController.instance.GetGameOver()) {
 
             rd2d.AddForce(Vector3.zero);
@@ -24,11 +27,11 @@ public class ScrollObject : MonoBehaviour
             return;
         }
 
-        const double V = 0.0;
-        if (GameController.instance.getSpeedUp() != V) {
-            rd2d.AddForce(Vector3.down * 1);
+        if (GameController.instance.getSpeedUp() > 0) {
+           
+            rd2d.AddForce(Vector3.down * GameController.instance.getSpeedUp() * speed);
         }
-        else {
+        else { 
             if ( Mathf.Sqrt(Mathf.Pow(rd2d.velocity.x, 2) + Mathf.Pow(rd2d.velocity.y, 2)) > 0.1 ) {
                 rd2d.AddForce(Vector3.up * 1);
             }
@@ -37,8 +40,10 @@ public class ScrollObject : MonoBehaviour
                 rd2d.velocity = Vector2.zero;
             }
         }
-
-        GameController.instance.SetPlayerSpeed(rd2d.velocity);
-        //rd2d.velocity = Vector2.down * GameController.instance.getSpeedUp() * 10; 
+        //更新玩家速度
+        if (updatePlayer)
+        {
+            GameController.instance.updatePlayerSpeed(rd2d.velocity);
+        }
     }
 }
